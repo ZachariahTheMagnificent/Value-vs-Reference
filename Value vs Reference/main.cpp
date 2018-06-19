@@ -4,7 +4,7 @@
 #include "profiler.hpp"
 
 //#define VALUE_SEMANTICS_FOR_STRUCTS
-//#define REFERENCE_SEMANTICS_FOR_BASIC_TYPES
+#define REFERENCE_SEMANTICS_FOR_BASIC_TYPES
 #define USE_DOUBLES
 
 using real =
@@ -150,6 +150,20 @@ int main ( )
 
 	auto my_profile = my_profiler.flush ( );
 
+	std::cout << "Programmed with: "
+#if defined VALUE_SEMANTICS_FOR_STRUCTS
+		<< "[VALUE_SEMANTICS_FOR_STRUCTS]"
+#endif
+#if defined REFERENCE_SEMANTICS_FOR_BASIC_TYPES
+		<< "[REFERENCE_SEMANTICS_FOR_BASIC_TYPES]"
+#endif
+#if defined USE_DOUBLES
+		<< "[USE_DOUBLES]"
+#endif
+#if defined _WIN64
+		<< "[_WIN64]"
+#endif
+		<< '\n';
 	std::cout << "Average: " << my_profile.mean << "ns\n";
 	std::cout << "Highest: " << my_profile.highest << "ns\n";
 	std::cout << "Lowest: " << my_profile.lowest << "ns\n";
