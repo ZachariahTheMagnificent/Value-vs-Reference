@@ -93,14 +93,14 @@ struct car
 	vector position { };
 	
 	car ( ) = default;
-	car ( vector_parameter acceleration, vector_parameter velocity, vector_parameter position ) : acceleration { acceleration },
+	constexpr explicit car ( vector_parameter acceleration, vector_parameter velocity, vector_parameter position ) noexcept : acceleration { acceleration },
 		velocity { velocity },
 		position { position }
 	{
 
 	}
 
-	void update ( real_parameter delta_time ) noexcept
+	constexpr void update ( real_parameter delta_time ) noexcept
 	{
 		velocity += acceleration * delta_time;
 		position += velocity * delta_time;
