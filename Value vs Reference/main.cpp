@@ -123,8 +123,7 @@ int main ( )
 
 	auto my_profiler = profiler ( );
 	auto cars = std::vector<car> { };
-	auto seeder = std::random_device { };
-	auto rng_machine = std::mt19937 { seeder ( ) };
+	auto rng_machine = std::mt19937 { };
 	auto acceleration_x_generator = std::uniform_real_distribution<real> { min_acceleration_x, max_acceleration_x };
 	auto acceleration_y_generator = std::uniform_real_distribution<real> { min_acceleration_y, max_acceleration_y };
 	auto velocity_x_generator = std::uniform_real_distribution<real> { min_velocity_x, max_velocity_x };
