@@ -110,16 +110,17 @@ struct car
 int main ( )
 {
 	constexpr auto num_tests = std::size_t { 1000 };
+	constexpr auto num_frames = std::size_t { 1000 };
 	constexpr auto num_objects = std::size_t { 10000 };
-	constexpr auto min_acceleration_x = real { 3.f };
-	constexpr auto max_acceleration_x = real { 5.f };
-	constexpr auto min_acceleration_y = real { 3.f };
-	constexpr auto max_acceleration_y = real { 5.f };
-	constexpr auto min_velocity_x = real { 3.f };
-	constexpr auto max_velocity_x = real { 5.f };
-	constexpr auto min_velocity_y = real { 3.f };
-	constexpr auto max_velocity_y = real { 5.f };
-	constexpr auto delta_time = real { 0.001f };
+	constexpr auto min_acceleration_x = real { 3 };
+	constexpr auto max_acceleration_x = real { 5 };
+	constexpr auto min_acceleration_y = real { 3 };
+	constexpr auto max_acceleration_y = real { 5 };
+	constexpr auto min_velocity_x = real { 3 };
+	constexpr auto max_velocity_x = real { 5 };
+	constexpr auto min_velocity_y = real { 3 };
+	constexpr auto max_velocity_y = real { 5 };
+	constexpr auto delta_time = real { 1 } / num_frames;
 
 	auto my_profiler = profiler ( );
 	auto cars = std::vector<car> { };
