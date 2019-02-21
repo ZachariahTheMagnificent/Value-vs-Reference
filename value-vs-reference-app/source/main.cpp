@@ -3,10 +3,6 @@
 #include <random>
 #include <value-vs-reference/profiler.hpp>
 
-//#define VALUE_SEMANTICS_FOR_STRUCTS
-#define REFERENCE_SEMANTICS_FOR_BASIC_TYPES
-#define USE_DOUBLES
-
 using real =
 #if defined USE_DOUBLES
 double
@@ -161,9 +157,18 @@ int main ( )
 #if defined USE_DOUBLES
 		<< "[USE_DOUBLES]"
 #endif
-#if defined _WIN64
-		<< "[_WIN64]"
-#endif
+		<< []
+		{
+			if constexpr(sizeof(void*) == 64)
+			{
+				return "x64";
+			}
+			else
+			{
+				return "";
+			}
+			
+		}()
 		<< '\n';
 	std::cout << "Average: " << my_profile.mean << "ns\n";
 	std::cout << "Highest: " << my_profile.highest << "ns\n";
@@ -171,6 +176,5 @@ int main ( )
 	std::cout << "Median: " << my_profile.median << "ns\n";
 	std::cout << "Standard Deviation: " << my_profile.standard_deviation << "ns\n";
 
-	std::system ( "pause" );
 	return 0;
 }
