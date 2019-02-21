@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <random>
-#include "profiler.hpp"
+#include <value-vs-reference/profiler.hpp>
 
 //#define VALUE_SEMANTICS_FOR_STRUCTS
 #define REFERENCE_SEMANTICS_FOR_BASIC_TYPES
