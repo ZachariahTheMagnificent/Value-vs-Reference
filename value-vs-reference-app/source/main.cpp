@@ -161,7 +161,7 @@ int main ( )
 		{
 			if constexpr(sizeof(void*) == 8)
 			{
-				return "x64";
+				return "[x64]";
 			}
 			else
 			{
