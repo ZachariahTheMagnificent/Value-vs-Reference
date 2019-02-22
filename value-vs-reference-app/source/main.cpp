@@ -159,7 +159,7 @@ int main ( )
 #endif
 		<< []
 		{
-			if constexpr(sizeof(void*) == 64)
+			if constexpr(sizeof(void*) == 8)
 			{
 				return "x64";
 			}
